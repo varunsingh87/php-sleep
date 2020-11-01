@@ -9,5 +9,12 @@
             "email": "31084854+Borumer@users.noreply.github.com"
         }
     ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "VarunS\\BorumSleep\\DBHandlers\\": "src/DBHandlers",
+            "VarunS\\BorumSleep\\": "src"
+        }
+    },
     "require": {}
 }
