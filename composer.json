@@ -1,0 +1,13 @@
+{
+    "name": "varuns/borum-sleep",
+    "description": "An object-oriented PHP library for a simple REST service",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Varun",
+            "email": "31084854+Borumer@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
