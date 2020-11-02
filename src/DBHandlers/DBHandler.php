@@ -17,9 +17,9 @@ class DBHandler {
      * Default super constructor for DBHandler
      * Connects to the database using the Configuration file
      */
-    function __construct() {
+    function __construct($dbUsername, $dbPassword, $dbHost, $dbName) {
         require __DIR__ . "/Config.php";
-        $this->conn = connectToDB();
+        $this->conn = connectToDB($dbUsername, $dbPassword, $dbHost, $dbName);
     }
 
     /**

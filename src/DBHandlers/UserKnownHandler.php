@@ -24,8 +24,8 @@ class UserKnownHandler extends DBHandler {
     /**
      * @param string $userApiKey The api key of the user requesting the jottings
      */
-    function __construct($userApiKey) {
-        parent::__construct();
+    function __construct($userApiKey, $dbUsername, $dbPassword, $dbHost, $dbName) {
+        parent::__construct($dbUsername, $dbPassword, $dbHost, $dbName);
 
         // Exit early if the API key is invalid
         $this->user = $this->getUserFromApiKey($userApiKey);

@@ -2,9 +2,9 @@
 
 namespace VarunS\BorumSleep\DBHandlers;
 
-function connectToDB() {
+function connectToDB($dbUsername, $dbPassword, $dbHost, $dbName) {
     // Connecting to mysql database
-    $dbc = mysqli_connect($_ENV["DB_USERNAME"], $_ENV["DB_PASSWORD"], $_ENV["DB_HOST"], $_ENV["DB_NAME"]);    
+    $dbc = mysqli_connect($dbUsername, $dbPassword, $dbHost, $dbName);    
  
     // Check for database connection error
     if (mysqli_connect_errno()) {
