@@ -166,5 +166,35 @@ class SimpleRest {
 			exit();
 		}
 	}
+
+	
+    /**
+     * Returns a 400 Bad Request error if the passed in id is not numeric
+     * @param int $id The id of the item
+     * @return Array statusCode 400 if not numeric and status code 100 if it is
+     */
+    public static function handleNonNumericId($id, $prefix="") {
+        if (!is_numeric($id)) {
+            return [
+                "statusCode" => 400,
+                "error" => [
+                    "message" => 'The ' . $prefix . 'id must be numeric'
+                ]
+            ];
+        } else {
+            return [
+                "statusCode" => 100
+            ];
+        }
+	}
+	
+	/**
+	 * Gets the usable value from the authorization header
+	 * @param string $authorizationHeader The full string
+	 * @return string The value after the text "Basic "
+	 */
+	public static function parseAuthorizationHeader($authorizationHeader) : String {
+		return substr($authorizationHeader, strlen("Basic "));
+	}
 }
 ?>

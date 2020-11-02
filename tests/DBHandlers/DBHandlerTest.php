@@ -8,7 +8,12 @@ class DBHandlerTest extends TestCase {
     private DBHandler $dbHandler;
 
     public function setUp() : void {
-        $this->dbHandler = new DBHandler();
+        $this->dbHandler = new DBHandler(
+            $_ENV["DB_USERNAME"], 
+            $_ENV["DB_PASSWORD"], 
+            $_ENV["DB_HOST"], 
+            $_ENV["DB_NAME"]
+        );
     }
 
     // TODO: #2

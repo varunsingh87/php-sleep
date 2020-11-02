@@ -33,5 +33,31 @@ class SimpleRestTest extends TestCase {
         $statusMessage500 = $this->simpleRestService->getHttpStatusMessage(500);
         $this->assertEquals($statusMessage, $statusMessage500);
     }
+
+    /**
+     * @test
+     */
+    public function handleNonNumericId_returnsArray() {
+        $this->assertIsArray(SimpleRest::handleNonNumericId(5));
+        $this->assertIsArray(SimpleRest::handleNonNumericId("103"));
+    }
+
+    public function handleNonNumericId_withValidId_gives_100() {
+        $this->assertEquals(SimpleRest::handleNonNumericId(10)["statusCode"], 100);
+        $this->assertEquals(SimpleRest::handleNonNumericId("10")["statusCode"], 100);
+    }
+
+    public function handleNonNumericId_withInvalidId_gives_400() {
+        $this->assertEquals(SimpleRest::handleNonNumericId("abc")["statusCode"], 400);
+        $this->assertEquals(SimpleRest::handleNonNumericId("5ab")["statusCode"], 400);
+    }
+
+    /**
+     * @test
+     */
+    public function parseAuthorizationHeader_isCorrect() {
+        $expectedParsedValue = "abcdef";
+        $this->assertEquals(SimpleRest::parseAuthorizationHeader("Basic " . $expectedParsedValue), $expectedParsedValue);
+    }
 }
 ?>
