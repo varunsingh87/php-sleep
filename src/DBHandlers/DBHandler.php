@@ -28,19 +28,19 @@ class DBHandler {
      * @return mysqli_result The result of the MySQL SELECT query
      */
     protected function getUserFromApiKey($userApiKey) {
-        return $this->executeQuery("SELECT * FROM firstborumdatabase.users WHERE api_key = '" . $userApiKey . "'");
+        return $this->executeQuery("SELECT id, api_key FROM firstborumdatabase.users WHERE api_key = '" . $userApiKey . "'");
     }
 
     /**
      * Checks whether the API key is in the users table
-     * AND whether it has a corresponding borum_user_id
+     * AND whether it has a corresponding id
      * @param String $apiKey user api key
      * @return boolean Whether the API Key is already in a row in the table of users in the database
      */
     protected function userExists($apiKey) {
         $userQuery = $this->getUserFromApiKey($apiKey);
         $num_rows = mysqli_num_rows($userQuery);
-        return $num_rows > 0 && isset(mysqli_fetch_array($userQuery, MYSQLI_ASSOC)['borum_user_id']);
+        return $num_rows > 0 && isset(mysqli_fetch_array($userQuery, MYSQLI_ASSOC)['id']);
     }
 
     /**
