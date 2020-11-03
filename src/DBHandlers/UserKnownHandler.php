@@ -33,7 +33,7 @@ class UserKnownHandler extends DBHandler {
         $this->user = $this->getUserFromApiKey($userApiKey);
         $this->handleInvalidApiKey($this->user);
         $this->userArray = mysqli_fetch_array($this->user, MYSQLI_BOTH);
-        $this->userId = $this->userArray['borum_user_id'];
+        $this->userId = $this->userArray['id'];
     }
 
     /** 
