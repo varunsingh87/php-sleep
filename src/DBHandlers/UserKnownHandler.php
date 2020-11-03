@@ -2,6 +2,8 @@
 
 namespace VarunS\BorumSleep\DBHandlers;
 
+use VarunS\BorumSleep\SimpleRest;
+
 class UserKnownHandler extends DBHandler {
     /**
      * The result of the MySQL query to get the user with the passed in api key
@@ -41,6 +43,7 @@ class UserKnownHandler extends DBHandler {
     */
     protected function handleInvalidApiKey($user) : void {
         if (mysqli_num_rows($user) == 0) {
+            SimpleRest::setHttpHeaders(404);
             echo json_encode([
                 "statusCode" => 404,
                 "error" => [
