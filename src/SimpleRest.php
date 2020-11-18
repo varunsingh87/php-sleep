@@ -21,6 +21,8 @@ class SimpleRest
 
 		header(SimpleRest::$httpVersion . " " . $statusCode . " " . $statusMessage);
 		header("Content-Type:" . ($contentType ?? "application/json") . "; charset=UTF-8");
+
+		header("Access-Control-Allow-Origin: " . $_SERVER["HTTP_ORIGIN"] . '');
 	}
 
 	/**
