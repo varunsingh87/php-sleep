@@ -23,7 +23,6 @@ class SimpleRest
 		header("Content-Type:" . ($contentType ?? "application/json") . "; charset=UTF-8");
 
 		// Needed for CORS Options request
-		header('Access-Control-Expose-Headers: Authorization,authorization');
 		header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN'] . '');
 		header('Access-Control-Allow-Credentials: true');
 	}
