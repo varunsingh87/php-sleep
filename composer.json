@@ -1,7 +1,6 @@
 {
     "name": "varuns/borum-sleep",
     "description": "An object-oriented PHP library for a simple REST service",
-    "version": "0.1.0",
     "type": "library",
     "license": "MIT",
     "authors": [
