@@ -138,6 +138,8 @@ class SimpleRest
 
 	public static function handleHeaderValidation($headers, String ...$requiredHeaders)
 	{
+		if ($_SERVER["REQUEST_METHOD"] == "OPTIONS") return;
+
 		$errors = array();
 
 		foreach ($requiredHeaders as $header) {
