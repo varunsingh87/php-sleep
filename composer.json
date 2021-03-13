@@ -1,5 +1,5 @@
 {
-    "name": "varuns/borum-sleep",
+    "name": "varuns/php-sleep",
     "description": "An object-oriented PHP library for a simple REST service",
     "type": "library",
     "license": "MIT",
@@ -12,8 +12,8 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "VarunS\\BorumSleep\\DBHandlers\\": "src/DBHandlers",
-            "VarunS\\BorumSleep\\": "src"
+            "VarunS\\PHPSleep\\DBHandlers\\": "src/DBHandlers",
+            "VarunS\\PHPSleep\\": "src"
         }
     },
     "require-dev": {

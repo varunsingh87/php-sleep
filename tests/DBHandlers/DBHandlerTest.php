@@ -1,7 +1,8 @@
 <?php 
 
-namespace VarunS\BorumSleep\Tests;
-use VarunS\BorumSleep\DBHandlers\DBHandler;
+namespace VarunS\PHPSleep\Tests\DBHandlers;
+
+use VarunS\PHPSleep\DBHandlers\DBHandler;
 use PHPUnit\Framework\TestCase;
 
 class DBHandlerTest extends TestCase {

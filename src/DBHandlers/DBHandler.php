@@ -1,8 +1,6 @@
 <?php 
 
-namespace VarunS\BorumSleep\DBHandlers;
-
-use function VarunS\BorumSleep\DBHandlers\connectToDB as connectToDB;
+namespace VarunS\PHPSleep\DBHandlers;
 
 /**
  * Class to handle all db operations
@@ -18,8 +16,8 @@ class DBHandler {
      * Connects to the database using the Configuration file
      */
     function __construct($dbUsername, $dbPassword, $dbHost, $dbName) {
-        require __DIR__ . "/Config.php";
-        $this->conn = connectToDB($dbUsername, $dbPassword, $dbHost, $dbName);
+        $config = new Config($dbUsername, $dbPassword, $dbHost, $dbName);
+        $this->conn = $config->connectToDB();
     }
 
     /**

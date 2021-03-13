@@ -1,9 +1,9 @@
 <?php 
 
-namespace VarunS\BorumSleep\Tests;
+namespace VarunS\PHPSleep\Tests\DBHandlers;
 
 use PHPUnit\Framework\TestCase;
-use VarunS\BorumSleep\SimpleRest;
+use VarunS\PHPSleep\SimpleRest;
 
 class SimpleRestTest extends TestCase {
     private SimpleRest $simpleRestService;

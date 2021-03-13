@@ -1,8 +1,8 @@
 <?php 
 
-namespace VarunS\BorumSleep\DBHandlers;
+namespace VarunS\PHPSleep\DBHandlers;
 
-use VarunS\BorumSleep\SimpleRest;
+use VarunS\PHPSleep\SimpleRest;
 
 class UserKnownHandler extends DBHandler {
     /**

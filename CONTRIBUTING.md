@@ -1,6 +1,6 @@
 # Contributing Guide
 
-This guide is intended for developers of Borum Sleep, people who want to contribute to the Borum Sleep codebase, or people who want to install from source and make local changes to their copy of Borum Sleep.
+This guide is intended for developers of PHP Sleep, people who want to contribute to the PHP Sleep codebase, or people who want to install from source and make local changes to their copy of PHP Sleep.
 
 All contributions, bug reports, bug fixes, documentation improvements, enhancements and ideas are welcome. I track issues on GitHub.
 

@@ -1,17 +1,30 @@
 <?php
 
-namespace VarunS\BorumSleep\DBHandlers;
+namespace VarunS\PHPSleep\DBHandlers;
 
-function connectToDB($dbUsername, $dbPassword, $dbHost, $dbName) {
-    // Connecting to mysql database
-    $dbc = mysqli_connect($dbHost, $dbUsername, $dbPassword, $dbName);    
- 
-    // Check for database connection error
-    if (mysqli_connect_errno()) {
-        echo "Failed to connect to server";
+class Config {
+    function __construct($user, $pass, $host, $name) {
+        $this->dbUsername = $user;
+        $this->dbPassword = $pass;
+        $this->dbHost = $host;
+        $this->dbName = $name;
     }
- 
-    return $dbc; // returning connection resource
+
+    public static function createConfigFromEnv() {
+        return new Config($_ENV["DB_USERNAME"], $_ENV["DB_PASSWORD"], $_ENV["DB_HOST"], $_ENV["DB_NAME"]);
+    }
+    
+    function connectToDB() {
+        // Connecting to mysql database
+        $dbc = mysqli_connect($this->dbHost, $this->dbUsername, $this->dbPassword, $this->dbName);    
+    
+        // Check for database connection error
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to server";
+        }
+    
+        return $dbc; // returning connection resource
+    }
 }
 
 ?>

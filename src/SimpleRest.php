@@ -1,6 +1,6 @@
 <?php
 
-namespace VarunS\BorumSleep;
+namespace VarunS\PHPSleep;
 
 /**
  * A simple RESTful webservices base class
