@@ -57,6 +57,10 @@ class DBHandler {
         $result = mysqli_query($this->conn, $query);
         return $result;
     }
+
+    public function lastQueryWasSuccessful($numRowsAffected = 1) {
+        return mysqli_affected_rows($this->conn) == $numRowsAffected;
+    }
 }
 
 ?>
