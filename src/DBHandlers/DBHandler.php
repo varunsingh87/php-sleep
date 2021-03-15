@@ -53,7 +53,7 @@ class DBHandler {
      * @param string $query The SQL query string
      * @return mysqli_result|bool The result object of the query to the database
      */
-    protected function executeQuery($query) {
+    public function executeQuery($query) {
         $result = mysqli_query($this->conn, $query);
         return $result;
     }

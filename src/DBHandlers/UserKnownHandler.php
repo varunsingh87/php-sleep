@@ -9,19 +9,19 @@ class UserKnownHandler extends DBHandler {
      * The result of the MySQL query to get the user with the passed in api key
      * @var mysqli_result 
      */
-    protected $user;
+    public $user;
 
     /**
-     * The associative array on the user or lack thereof who is querying the notes
+     * The associative array on the user or lack thereof who is querying the data
      * @var Array
      */
-    protected $userArray;
+    public $userArray;
 
     /**
      * The id of the user
      * @var int
      */
-    protected $userId;
+    public $userId;
     
     /**
      * @param string $userApiKey The api key of the user requesting the jottings
