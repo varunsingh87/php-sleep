@@ -61,6 +61,14 @@ class DBHandler {
     public function lastQueryWasSuccessful($numRowsAffected = 1) {
         return mysqli_affected_rows($this->conn) == $numRowsAffected;
     }
+
+    public function lastQueryAffectedNoRows() {
+        return mysqli_affected_rows($this->conn) == 0;
+    }
+
+    public function lastQueryGaveError() {
+        return mysqli_affected_rows($this->conn) <= -1;
+    }
 }
 
 ?>
