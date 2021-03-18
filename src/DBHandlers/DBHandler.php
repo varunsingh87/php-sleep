@@ -23,7 +23,7 @@ class DBHandler {
     /**
      * Get the user with the given api key
      * @param string $userApiKey
-     * @return mysqli_result The result of the MySQL SELECT query
+     * @return \mysqli_result The result of the MySQL SELECT query
      */
     protected function getUserFromApiKey($userApiKey) {
         return $this->executeQuery("SELECT id, api_key FROM firstborumdatabase.users WHERE api_key = '" . $userApiKey . "'");
@@ -51,7 +51,7 @@ class DBHandler {
     /**
      * Helper method to execute a MySQL query
      * @param string $query The SQL query string
-     * @return mysqli_result|bool The result object of the query to the database
+     * @return \mysqli_result|bool The result object of the query to the database
      */
     public function executeQuery($query) {
         $result = mysqli_query($this->conn, $query);

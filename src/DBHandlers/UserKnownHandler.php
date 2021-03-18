@@ -7,7 +7,7 @@ use VarunS\PHPSleep\SimpleRest;
 class UserKnownHandler extends DBHandler {
     /**
      * The result of the MySQL query to get the user with the passed in api key
-     * @var mysqli_result 
+     * @var \mysqli_result 
      */
     public $user;
 
@@ -38,16 +38,17 @@ class UserKnownHandler extends DBHandler {
 
     /** 
      * Helper logic that exits the script if the user is invalid
-     * @param mysqli_result $user The result of the query that selects the user with the passed in api key
+     * @param \mysqli_result $user The result of the query that selects the user with the passed in api key
      * @return void 
     */
     protected function handleInvalidApiKey($user) : void {
-        if (mysqli_num_rows($user) == 0) {
+        if ($user && mysqli_num_rows($user) == 0) {
             SimpleRest::setHttpHeaders(404);
             echo json_encode([
                 "statusCode" => 404,
                 "error" => [
-                    "message" => "The user does not exist"
+                    "message" => "The user does not exist",
+                    "query" => mysqli_error($this->conn)
                 ]
             ]);
             exit();
