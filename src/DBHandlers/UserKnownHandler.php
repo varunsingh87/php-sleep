@@ -42,13 +42,21 @@ class UserKnownHandler extends DBHandler {
      * @return void 
     */
     protected function handleInvalidApiKey($user) : void {
-        if (!!!$user || mysqli_num_rows($user) == 0) {
+        if (!!!$user) {
+            SimpleRest::setHttpHeaders(500);
+            echo json_encode([
+                "statusCode" => 500,
+                "error" => [
+                    "message" => "A system error occurred",
+                    "query" => mysqli_error($this->conn)
+                ]
+            ]);
+        } else if (mysqli_num_rows($user) == 0) {
             SimpleRest::setHttpHeaders(404);
             echo json_encode([
                 "statusCode" => 404,
                 "error" => [
                     "message" => "The user does not exist",
-                    "query" => mysqli_error($this->conn)
                 ]
             ]);
             exit();
