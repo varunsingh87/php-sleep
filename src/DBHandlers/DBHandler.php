@@ -69,6 +69,18 @@ class DBHandler {
     public function lastQueryGaveError() {
         return mysqli_affected_rows($this->conn) <= -1;
     }
+
+    public function beginTransaction() {
+        mysqli_begin_transaction($this->conn);
+    }
+
+    public function commitTransaction() {
+        mysqli_commit($this->conn);
+    }
+
+    public function rollbackTransaction() {
+        mysqli_rollback($this->conn);
+    }
 }
 
 ?>
