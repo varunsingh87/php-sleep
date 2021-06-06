@@ -26,7 +26,7 @@ class DBHandler {
      * @return \mysqli_result The result of the MySQL SELECT query
      */
     protected function getUserFromApiKey($userApiKey) {
-        return $this->executeQuery("SELECT id, api_key FROM firstborumdatabase.users WHERE api_key = '" . $userApiKey . "'");
+        return $this->executeQuery("SELECT id, api_key, email FROM firstborumdatabase.users WHERE api_key = '" . $userApiKey . "'");
     }
 
     /**
