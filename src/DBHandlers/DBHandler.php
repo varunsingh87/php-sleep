@@ -81,6 +81,10 @@ class DBHandler {
     public function rollbackTransaction() {
         mysqli_rollback($this->conn);
     }
+
+    public function sanitizeParam(string $param) {
+        return mysqli_real_escape_string($this->conn, trim($param));
+    }
 }
 
 ?>
