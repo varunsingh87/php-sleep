@@ -60,14 +60,6 @@ class DBHandler {
         return $this->conn->query($query);
     }
 
-    public function bindParametersAfterSanitation(\mysqli_stmt $preparedStatement, ...$params) {  
-        foreach ($params as $param) {
-            $preparedStatement->prepare($this->sanitizeParam($param));
-        }
-
-        return $preparedStatement;
-    }
-
     public function lastQueryWasSuccessful($numRowsAffected = 1) {
         return mysqli_affected_rows($this->conn) == $numRowsAffected;
     }
