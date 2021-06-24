@@ -3,8 +3,7 @@
 namespace VarunS\PHPSleep\DBHandlers;
 
 /**
- * Class to handle all db operations
- * This class will have CRUD methods for database tables
+ * Class to handle all db operations using CRUD methods
  * @author Varun Singh
  */
 class DBHandler {
@@ -18,6 +17,10 @@ class DBHandler {
     function __construct($dbUsername, $dbPassword, $dbHost, $dbName) {
         $config = new Config($dbUsername, $dbPassword, $dbHost, $dbName);
         $this->conn = $config->connectToDB();
+    }
+
+    public function getConnection(): \mysqli {
+        return $this->conn;
     }
 
     /**
@@ -55,10 +58,6 @@ class DBHandler {
      */
     public function executeQuery($query) {
         return $this->conn->query($query);
-    }
-
-    public function prepareQuery(string $query): \mysqli_stmt|false {
-        return $this->conn->prepare($query);
     }
 
     public function bindParametersAfterSanitation(\mysqli_stmt $preparedStatement, ...$params) {  
