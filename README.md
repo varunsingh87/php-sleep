@@ -21,3 +21,7 @@ So you'd like to contribute to the PHP Sleep library? Excellent! Thank you very 
 
 1. Read [the contributing guidelines](CONTRIBUTING.md).
 2. Open an issue or pull request preferably using an existing template
+
+## License
+
+This package is [Treeware](https://treeware.earth). If you use it in production, then we ask that you [**buy the world a tree**](https://plant.treeware.earth/varunsingh87/php-sleep) to thank us for our work. By contributing to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
