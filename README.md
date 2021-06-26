@@ -1,5 +1,7 @@
 # PHP Sleep
 
+[![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/varunsingh87/php-sleep)
+
 An object-oriented PHP library for a simple REST service
 
 PHP Sleep is a PHP library for creating JSON-based REST APIs that interact with a MySQL database.
@@ -23,5 +25,7 @@ So you'd like to contribute to the PHP Sleep library? Excellent! Thank you very 
 2. Open an issue or pull request preferably using an existing template
 
 ## License
+
+PHP Sleep is 100% free and open-source, under the MIT license. You may use it however you please.
 
 This package is [Treeware](https://treeware.earth). If you use it in production, then we ask that you [**buy the world a tree**](https://plant.treeware.earth/varunsingh87/php-sleep) to thank us for our work. By contributing to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
