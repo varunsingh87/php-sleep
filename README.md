@@ -1,5 +1,7 @@
 # PHP Sleep
 
+[![License](https://img.shields.io/npm/l/@apidevtools/swagger-parser.svg)](LICENSE)
+[![Packagist Version](https://img.shields.io/packagist/v/varuns/php-sleep?include_prereleases&color=green&style=plastic)](https://packagist.org/packages/varuns/php-sleep)
 [![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/varunsingh87/php-sleep)
 
 An object-oriented PHP library for a simple REST service
