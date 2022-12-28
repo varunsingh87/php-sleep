@@ -39,6 +39,10 @@ class DBHandler {
         return $this->executeQuery("SELECT id, api_key, email FROM firstborumdatabase.users WHERE api_key = '" . $userApiKey . "'");
     }
 
+    public function getUser($userApiKey) {
+        return mysqli_fetch_assoc($this->getUserFromApiKey($userApiKey));
+    }
+
     /**
      * Checks whether the API key is in the users table
      * AND whether it has a corresponding id
