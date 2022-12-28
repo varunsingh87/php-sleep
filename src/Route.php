@@ -28,7 +28,7 @@ class Route {
 		$this->apiKey = substr($headers['authorization'], sizeof("Basic "));
 	}
 
-    public function get(callback $get) {
+    public function get(callable $get) {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $response = $get();
             header("HTTP/1.1 200 OK");
