@@ -5,7 +5,7 @@ namespace VarunS\PHPSleep;
 class DotEnv
 {
     public static function loadIfLocal() {
-        $path = '/.env';
+        $path = $_SERVER['DOCUMENT_ROOT'] . '/.env';
         if(!file_exists($path)) {
             throw new \InvalidArgumentException(sprintf('%s does not exist', $path));
         }
