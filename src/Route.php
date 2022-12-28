@@ -16,8 +16,6 @@ class Route {
 		header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
         header('Access-Control-Allow-Headers: Authorization');
         header("Content-Type: application/json; charset=UTF-8");
-		
-
     }
 
 	public function authorize() {
@@ -32,7 +30,7 @@ class Route {
 
     public function get(callback $get) {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $response = call_user_func($get);
+            $response = $get();
             header("HTTP/1.1 200 OK");
 			echo json_encode($response);
         }
