@@ -8,23 +8,26 @@ namespace VarunS\PHPSleep\DBHandlers;
  */
 class DBHandler {
 
-    protected $conn;
+    protected \mysqli $conn;
 
     /**
      * Default super constructor for DBHandler
      * Connects to the database using the Configuration file
      */
     function __construct($dbUsername, $dbPassword, $dbHost, $dbName) {
-        $config = new Config($dbUsername, $dbPassword, $dbHost, $dbName);
-        $this->conn = $config->connectToDB();
+        $this->conn = (new Config($dbUsername, $dbPassword, $dbHost, $dbName))->connectToDB();
     }
-
-    function __construct($config) {
-        $this->conn = $config->connectToDB();
+    
+    public static function configDBFromEnv() {
+        return new DBHandler($_ENV["DB_USERNAME"], $_ENV["DB_PASSWORD"], $_ENV["DB_HOST"], $_ENV["DB_NAME"]);
     }
 
     public function getConnection(): \mysqli {
         return $this->conn;
+    }
+
+    public function disconnect() {
+        $this->conn->close();
     }
 
     /**
