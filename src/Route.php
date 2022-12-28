@@ -35,4 +35,12 @@ class Route {
 			echo json_encode($response);
         }
     }
+
+	public function post(callable $post) {
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			$response = $post();
+			http_response_code(200);
+			echo json_encode($response);
+		}
+	}
 }
