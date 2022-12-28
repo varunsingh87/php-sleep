@@ -19,6 +19,10 @@ class DBHandler {
         $this->conn = $config->connectToDB();
     }
 
+    function __construct($config) {
+        $this->conn = $config->connectToDB();
+    }
+
     public function getConnection(): \mysqli {
         return $this->conn;
     }
