@@ -29,17 +29,36 @@ class Route {
 	}
 
     public function get(callable $get) {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $response = $get(new Request);
-            http_response_code(200);
-			echo json_encode($response);
-        }
+		try {
+			if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+				$response = $get(new Request);
+				http_response_code(200);
+				echo json_encode($response);
+			}
+		} catch (\Throwable $e) {
+			http_response_code($e->getCode());
+			return [
+				"error" => [
+					"message" => $e->getMessage()
+				]
+			];
+		}
     }
 
 	public function post(callable $post) {
-		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-			$response = $post(new Request);
-			echo json_encode($response);
+		try {
+			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+				$response = $post(new Request);
+				echo json_encode($response);
+			}
+		} catch (\Throwable $e) {
+			http_response_code($e->getCode());
+			return [
+				"error" => [
+					"message" => $e->getMessage()
+				]
+			];
 		}
+
 	}
 }
