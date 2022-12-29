@@ -12,6 +12,11 @@ class Request {
     public function getHeader($name) {
         return $this->headers[$name];
     }
+
+    public function hasHeader($name): bool {
+        return isset($this->headers[$name]);
+    }
+
     public function authorize() {
         return substr($this->getHeader('authorization'), strlen('Basic '));
     }
