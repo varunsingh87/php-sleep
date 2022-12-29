@@ -6,7 +6,7 @@ class Request {
     private $headers;
 
     public function __construct() {
-        $headers = apache_request_headers();
+        $this->headers = apache_request_headers();
     }
 
     public function getHeader($name) {
