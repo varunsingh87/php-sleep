@@ -31,7 +31,7 @@ class Route {
     public function get(callable $get) {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $response = $get(new Request);
-            header("HTTP/1.1 200 OK");
+            http_response_code(200);
 			echo json_encode($response);
         }
     }
@@ -39,7 +39,6 @@ class Route {
 	public function post(callable $post) {
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$response = $post(new Request);
-			http_response_code(204);
 			echo json_encode($response);
 		}
 	}
