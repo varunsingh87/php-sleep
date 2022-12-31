@@ -41,11 +41,11 @@ class Route
 			}
 		} catch (\Throwable $e) {
 			http_response_code($e->getCode());
-			return [
+			echo json_encode([
 				"error" => [
 					"message" => $e->getMessage()
 				]
-			];
+			]);
 		}
 	}
 
@@ -58,11 +58,11 @@ class Route
 			}
 		} catch (\Throwable $e) {
 			http_response_code($e->getCode());
-			return [
+			echo json_encode([
 				"error" => [
 					"message" => $e->getMessage()
 				]
-			];
+			]);
 		}
 	}
 }
