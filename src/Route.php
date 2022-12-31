@@ -88,8 +88,8 @@ class Route
 	{
 		try {
 			if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
-				$response = $delete(new Request);
-				echo json_encode($response);
+				$delete(new Request);
+				http_response_code(204);
 			}
 		} catch (Throwable $e) {
 			http_response_code($e->getCode());
