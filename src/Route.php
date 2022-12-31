@@ -2,7 +2,8 @@
 
 namespace VarunS\PHPSleep;
 
-use \Exception;
+use Exception;
+use Throwable;
 
 class Route
 {
@@ -39,7 +40,7 @@ class Route
 				http_response_code(200);
 				echo json_encode($response);
 			}
-		} catch (\Throwable $e) {
+		} catch (Throwable $e) {
 			http_response_code($e->getCode());
 			echo json_encode([
 				"error" => [
@@ -57,6 +58,40 @@ class Route
 				echo json_encode($response);
 			}
 		} catch (\Throwable $e) {
+			http_response_code($e->getCode());
+			echo json_encode([
+				"error" => [
+					"message" => $e->getMessage()
+				]
+			]);
+		}
+	}
+
+	public function put(callable $put)
+	{
+		try {
+			if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+				$response = $put(new Request);
+				echo json_encode($response);
+			}
+		} catch (Throwable $e) {
+			http_response_code($e->getCode());
+			echo json_encode([
+				"error" => [
+					"message" => $e->getMessage()
+				]
+			]);
+		}
+	}
+
+	public function delete(callable $delete)
+	{
+		try {
+			if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+				$response = $delete(new Request);
+				echo json_encode($response);
+			}
+		} catch (Throwable $e) {
 			http_response_code($e->getCode());
 			echo json_encode([
 				"error" => [
