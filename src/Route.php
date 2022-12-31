@@ -32,7 +32,7 @@ class Route
 		$this->apiKey = substr($headers['authorization'], strlen("Basic "));
 	}
 
-	public function get(callable $get)
+	public function get(callable $get = null)
 	{
 		try {
 			if ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -50,7 +50,7 @@ class Route
 		}
 	}
 
-	public function post(callable $post)
+	public function post(callable $post = null)
 	{
 		try {
 			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -67,7 +67,7 @@ class Route
 		}
 	}
 
-	public function put(callable $put)
+	public function put(callable $put = null)
 	{
 		try {
 			if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
@@ -84,7 +84,7 @@ class Route
 		}
 	}
 
-	public function delete(callable $delete)
+	public function delete(callable $delete = null)
 	{
 		try {
 			if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
