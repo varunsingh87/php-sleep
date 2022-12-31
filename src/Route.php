@@ -18,8 +18,6 @@ class Route
 		header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
 		header('Access-Control-Allow-Headers: Authorization');
 		header("Content-Type: application/json; charset=UTF-8");
-
-		DotEnv::loadIfLocal();
 	}
 
 	public function authorize()
