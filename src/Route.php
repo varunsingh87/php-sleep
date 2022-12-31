@@ -1,34 +1,40 @@
-<?php 
+<?php
 
 namespace VarunS\PHPSleep;
 
 use \Exception;
 
-class Route {
+class Route
+{
 	public string $apiKey;
-	
-    public function __construct() {
-        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+
+	public function __construct()
+	{
+		header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
 
 		if (!isset($_SERVER['HTTP_ORIGIN']))
 			$_SERVER['HTTP_ORIGIN'] = 'localhost';
 
 		header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
-        header('Access-Control-Allow-Headers: Authorization');
-        header("Content-Type: application/json; charset=UTF-8");
-    }
+		header('Access-Control-Allow-Headers: Authorization');
+		header("Content-Type: application/json; charset=UTF-8");
 
-	public function authorize() {
+		DotEnv::loadIfLocal();
+	}
+
+	public function authorize()
+	{
 		$headers = apache_request_headers();
-		
+
 		if (!isset($headers['authorization'])) {
 			throw new Exception("Not authorized");
 		}
 
-		$this->apiKey = substr($headers['authorization'], sizeof("Basic "));
+		$this->apiKey = substr($headers['authorization'], strlen("Basic "));
 	}
 
-    public function get(callable $get) {
+	public function get(callable $get)
+	{
 		try {
 			if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 				$response = $get(new Request);
@@ -43,9 +49,10 @@ class Route {
 				]
 			];
 		}
-    }
+	}
 
-	public function post(callable $post) {
+	public function post(callable $post)
+	{
 		try {
 			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				$response = $post(new Request);
@@ -59,6 +66,5 @@ class Route {
 				]
 			];
 		}
-
 	}
 }
